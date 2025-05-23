@@ -1,9 +1,23 @@
-name: GitHub Actions Demo
+name: prepare nim
 
-on: [push]
+on:
+    push:
+        branches:
+        - main
+    pull_request:
+        branches:
+        - main
 
 jobs:
-    echo_hello_world:
+    build:
         runs-on: ubuntu-latest
+        container:
+            image: nimlang/nim:latest
+            options: --user 1001
+        
         steps:
-            - run: echo "hello world!!"
+            - uses: actions/checkout@v4
+            - name : Tests
+              run: |
+                nimble develop -y
+                nim c -r flont/tester.nim
