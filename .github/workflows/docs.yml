@@ -20,4 +20,4 @@ jobs:
             - name : Tests
               run: |
                 nimble develop -y
-                nim c -r flont/tester.nim
+                nim c -r flont/test.nim
