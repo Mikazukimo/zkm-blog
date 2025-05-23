@@ -1,0 +1,7 @@
+nimcache/
+/tests/tester
+karax/tools/karun
+*.code-workspace
+*.exe
+app.js
+app.html
